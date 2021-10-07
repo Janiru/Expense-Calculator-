@@ -1,7 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
 
+:root {
+  --primary-color: #3f3f3f;
+}
+
+[data-theme="dark"] {
+  --primary-color: #dcdada;
+}
+
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
@@ -10,5 +20,51 @@ html {
 
 body {
   margin: 0;
-  background-color: #3f3f3f;
+  background-color: var(--primary-color);
+  position: relative;
 }
+
+.theme-toggle {
+  position: absolute;
+  height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+.toggle-btn {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 50px;
+	height: 25px;
+  right: 20px;
+	background: grey;
+	display: block;
+	border-radius: 100px;
+	position: absolute;
+}
+
+.toggle-btn:after {
+	content: '';
+	position: absolute;
+	top: 1.25px;
+	left: 1.25px;
+	width: 22.5px;
+	height: 22.5px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+.theme-toggle:checked + .toggle-btn {
+	background: #40005d;
+}
+
+.theme-toggle:checked + label:after {
+	left: calc(100% - 1.25px);
+	transform: translateX(-100%);
+}
+
+.toggle-btn:active:after {
+	width: 32.5px;
+}
+

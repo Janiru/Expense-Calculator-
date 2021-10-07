@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
@@ -31,15 +31,26 @@ const dummyExpenses = [
 
 function App() {
   const [expenses, setExpenses] = useState(dummyExpenses);
-
+  const [theme,toggleTheme] = useState('DARK')
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
   };
 
+  useEffect(()=>{
+    if(theme==='LIGHT'){
+      document.documentElement.setAttribute("data-theme", "dark");
+      console.log('theme changed to light')
+    }else{
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  },[theme])
+
   return (
     <div>
+      <input type="checkbox" id="toggleTheme" class="theme-toggle" onClick={()=>{toggleTheme(theme==='DARK'?'LIGHT':'DARK')}} />
+      <label class="toggle-btn" for="toggleTheme">Toggle</label>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
