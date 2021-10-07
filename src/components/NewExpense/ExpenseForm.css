@@ -1,3 +1,11 @@
+:root {
+  --text-color: black;
+}
+
+[data-theme="dark"] {
+  --text-color: rgb(92, 92, 92);
+}
+
 .new-expense__controls {
   display: flex;
   flex-wrap: wrap;
@@ -7,6 +15,7 @@
 }
 
 .new-expense__control label {
+  color: var(--text-color);
   font-weight: bold;
   margin-bottom: 0.5rem;
   display: block;

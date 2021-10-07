@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
 
 :root {
-  --primary-color: #3f3f3f;
+  --color_one: #434343;
+  --color_two: black;
 }
 
 [data-theme="dark"] {
-  --primary-color: #dcdada;
+  --color_one: #f6d365;
+  --color_two: #fda085;
 }
 
 * {
@@ -20,51 +22,56 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--primary-color);
+  background-image: linear-gradient(
+    90deg,
+    var(--color_one) 0%,
+    var(--color_two) 100%
+  );
+  z-index: 1;
   position: relative;
+  opacity: 1;
+  transition: 0, 3s ease-in;
 }
-
 .theme-toggle {
   position: absolute;
   height: 0;
-	width: 0;
-	visibility: hidden;
+  width: 0;
+  visibility: hidden;
 }
 
 .toggle-btn {
-	cursor: pointer;
-	text-indent: -9999px;
-	width: 50px;
-	height: 25px;
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 25px;
   right: 20px;
-	background: grey;
-	display: block;
-	border-radius: 100px;
-	position: absolute;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: absolute;
 }
 
 .toggle-btn:after {
-	content: '';
-	position: absolute;
-	top: 1.25px;
-	left: 1.25px;
-	width: 22.5px;
-	height: 22.5px;
-	background: #fff;
-	border-radius: 90px;
-	transition: 0.3s;
+  content: "";
+  position: absolute;
+  top: 1.25px;
+  left: 1.25px;
+  width: 22.5px;
+  height: 22.5px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
 }
 
 .theme-toggle:checked + .toggle-btn {
-	background: #40005d;
+  background: #f6d365;
 }
 
 .theme-toggle:checked + label:after {
-	left: calc(100% - 1.25px);
-	transform: translateX(-100%);
+  left: calc(100% - 1.25px);
+  transform: translateX(-100%);
 }
 
 .toggle-btn:active:after {
-	width: 32.5px;
+  width: 32.5px;
 }
-

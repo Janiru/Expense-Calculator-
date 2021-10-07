@@ -1,11 +1,26 @@
+:root {
+  --date-back-col: #2a2a2a;
+  --date-col: white;
+}
+
+[data-theme="dark"] {
+  --date-back-col: #b0d299;
+  --date-col: #ffedc0;
+}
+
+.expenses-filter {
+  color: white;
+  padding: 0 1rem;
+}
+
 .expense-date {
   display: flex;
   flex-direction: column;
   width: 5.5rem;
   height: 5.5rem;
   border: 1px solid #ececec;
-  background-color: #2a2a2a;
-  color: white;
+  background-color: var(--date-back-col);
+  color: var(--date-col);
   border-radius: 12px;
   align-items: center;
   justify-content: center;

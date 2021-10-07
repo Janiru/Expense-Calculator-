@@ -1,30 +1,41 @@
+:root {
+  --bar-color: #c3b4f3;
+  --bar-fil-color: #4826b9;
+  --bar-border-color: #313131;
+}
+
+[data-theme="dark"] {
+  --bar-color: #65d1b6;
+  --bar-fil-color: #ff7552;
+  --bar-border-color: #9b9b9b;
+}
+
 .chart-bar {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .chart-bar__inner {
-    height: 100%;
-    width: 100%;
-    border: 1px solid #313131;
-    border-radius: 12px;
-    background-color: #c3b4f3;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--bar-border-color);
+  border-radius: 12px;
+  background-color: var(--bar-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .chart-bar__fill {
-    background-color: #4826b9;
-    width: 100%;
-    transition: all 0.3s ease-out;
+  background-color: var(--bar-fil-color);
+  width: 100%;  
 }
 
 .chart-bar__label {
-    font-weight: bold;
-    font-size: 0.5rem;
-    text-align: center;
+  font-weight: bold;
+  font-size: 0.5rem;
+  text-align: center;
 }

@@ -1,5 +1,17 @@
+:root {
+  --new-expense: #a892ee;
+  --new-expense-button: #40005d;
+  --new-expense-button-hover: #510674;
+}
+
+[data-theme="dark"] {
+  --new-expense: #65d1b6;
+  --new-expense-button: #ff7552;
+  --new-expense-button-hover: #ff7c5c;
+}
+
 .new-expense {
-  background-color: #a892ee;
+  background-color: var(--new-expense);
   padding: 1rem;
   margin: 2rem auto;
   width: 50rem;
@@ -13,8 +25,8 @@
   font: inherit;
   cursor: pointer;
   padding: 1rem 2rem;
-  border: 1px solid #40005d;
-  background-color: #40005d;
+  border: 1px solid var(--new-expense-button);
+  background-color: var(--new-expense-button);
   color: white;
   border-radius: 12px;
   margin-right: 1rem;
@@ -22,8 +34,8 @@
 
 .new-expense button:hover,
 .new-expense button:active {
-  background-color: #510674;
-  border-color: #510674;
+  background-color: var(--new-expense-button-hover);
+  border-color: var(--new-expense-button-hover);
 }
 
 .new-expense button.alternative {
